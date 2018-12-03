@@ -9,6 +9,7 @@ Update with your own GitHub Oauth validation token here:
 https://github.com/bkinsey808/angular-graphql-github-search/blob/master/src/app/graphql.module.ts#L11
 
 `npm i`
+
 `npm start`
 
 ## Accomplished Goals
