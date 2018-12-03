@@ -1,27 +1,24 @@
 # GithubSearch
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+This project demonstrates I know how to do Angular, GraphQL, and hook up apis.
+I'm looking for a remote job. Hire me, lol ;) https://bkinsey808.github.io/resume/
 
-## Development server
+## Accomplished Goals
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Re-implements a portion of GitHub's search, using public GraphQL api.
 
-## Code scaffolding
+Uses latest version of angular and angular-cli.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Apollo-graphql installed via `ng add apollo-angular`.
 
-## Build
+Displays a paginated list of user results
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Allows jump to first, prev, and next pages.
 
-## Running unit tests
+Displays total count of search results.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Displays notable info about user: login, name, bio, avatar, and allows jump to profile.
 
-## Running end-to-end tests
+## non-goals
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This project does not do anything with css/UX, nor automated testing, nor devops, nor is it optimized to minimize speed or download size. It was a quick coding challenge for demo purposes only.
