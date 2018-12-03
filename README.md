@@ -3,6 +3,14 @@
 This project demonstrates I know how to do Angular, GraphQL, and hook up apis.
 I'm looking for a remote job. Hire me, lol ;) https://bkinsey808.github.io/resume/
 
+## To run
+
+Update with your own GitHub Oauth validation token here:
+https://github.com/bkinsey808/angular-graphql-github-search/blob/master/src/app/graphql.module.ts#L11
+
+`npm i`
+`npm start`
+
 ## Accomplished Goals
 
 Re-implements a portion of GitHub's search, using public GraphQL api.
