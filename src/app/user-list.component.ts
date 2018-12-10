@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 import { map, switchMap, debounceTime, shareReplay, tap } from 'rxjs/operators';
 
 import gql from 'graphql-tag';
@@ -131,25 +131,20 @@ export class UserListComponent {
   }
 
   getGithubUserSearchResponse$(): Observable<GithubUserSearch> {
-    return this._searchString$.pipe(
+    return combineLatest(this._searchString$, this._beforeOrAfter$).pipe(
       debounceTime(200),
-      switchMap(searchString =>
-        this._beforeOrAfter$.pipe(
-          switchMap(beforeOrAfter => {
-            this.loading$.next(true);
-            return this.apollo
-              .watchQuery<GithubUserSearch>({
-                variables: { searchString },
-                query: getQuery(beforeOrAfter)
-              })
-              .valueChanges.pipe(
-                tap(r => this.loading$.next(r.loading)),
-                map(r => r.data)
-              );
+      switchMap(([searchString, beforeOrAfter]) => {
+        this.loading$.next(true);
+        return this.apollo
+          .watchQuery<GithubUserSearch>({
+            variables: { searchString },
+            query: getQuery(beforeOrAfter)
           })
-        )
-      ),
-      shareReplay(1)
+          .valueChanges.pipe(
+            tap(r => this.loading$.next(r.loading)),
+            map(r => r.data)
+          );
+      })
     );
   }
 
