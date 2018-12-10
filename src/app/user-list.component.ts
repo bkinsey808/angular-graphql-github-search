@@ -144,7 +144,8 @@ export class UserListComponent {
             tap(r => this.loading$.next(r.loading)),
             map(r => r.data)
           );
-      })
+      }),
+      shareReplay(1)
     );
   }
 
